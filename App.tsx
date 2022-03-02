@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
+/* eslint-disable camelcase */
 import React from 'react';
-import Home from './src/screens/Home';
 
-import { ThemeProvider} from 'styled-components/native'
-import theme from './src/themes';
+import {
+  useFonts,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto';
 import AppLoading from 'expo-app-loading';
-import {useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold} from '@expo-google-fonts/roboto'
+import { ThemeProvider } from 'styled-components/native';
+
+import Home from './src/screens/Home';
+import theme from './src/themes';
 
 export default function App() {
   const [fontLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
-    Roboto_700Bold
+    Roboto_700Bold,
   });
 
   if (!fontLoaded) {
-    return <AppLoading />
+    return <AppLoading />;
   }
 
   return (
@@ -24,5 +30,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-
-
